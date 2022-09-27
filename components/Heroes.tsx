@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ListHeroProps } from '../service';
+import { ListHeroProps } from '../services';
 import styles from '../styles/Home.module.css';
 
 export const Heroes = ({ listHero }: ListHeroProps) => {

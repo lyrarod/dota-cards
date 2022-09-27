@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './styles.module.css';
-import { getHeroBySlug, getHeroes } from '../../service';
+import { getHeroBySlug, getHeroes } from '../../services';
 import { GetStaticPaths, InferGetStaticPropsType } from 'next';
 
 export default function Hero({

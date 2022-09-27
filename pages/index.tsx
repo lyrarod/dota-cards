@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import { getHeroes } from '../service';
+import { getHeroes } from '../services';
 import { Heroes } from '../components/Heroes';
 import { InferGetStaticPropsType } from 'next';
 
