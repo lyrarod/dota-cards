@@ -1,0 +1,39 @@
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.main {
+  gap: 1rem;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+
+.card {
+  width: 140px;
+  padding: 0.375rem;
+  border-radius: 2px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+.card h3 {
+  color: #114;
+  font-size: 14px;
+}
+
+.input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  width: 80%;
+  display: flex;
+  margin: 1rem auto;
+  margin-bottom: 2rem;
+}
+
+.input:focus {
+  outline: none;
+}
