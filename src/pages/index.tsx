@@ -1,25 +1,25 @@
-import Head from 'next/head';
-import { useState } from 'react';
-import { getHeroes } from '../services';
-import { Heroes } from '../components/Heroes';
-import { InferGetStaticPropsType } from 'next';
+import Head from "next/head";
+import { useState } from "react";
+import { getHeroes } from "../../services";
+import { Heroes } from "../components/Heroes";
+import { InferGetStaticPropsType } from "next";
 
-import styles from '../styles/Home.module.css';
+import styles from "../styles/Home.module.css";
 
 export default function Home({
   heroes,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
-  const filteredHero =
+  const filteredHeroes =
     search.length > 0
       ? heroes.filter((h) => h.localized_name.toLowerCase().includes(search))
-      : [];
+      : heroes;
 
   return (
     <>
       <Head>
-        <title>Dota 2 Cards</title>
+        <title>Dota Cards</title>
       </Head>
 
       <div className={styles.container}>
@@ -31,11 +31,7 @@ export default function Home({
         />
 
         <main className={styles.main}>
-          {search.length > 0 ? (
-            <Heroes listHero={filteredHero} />
-          ) : (
-            <Heroes listHero={heroes} />
-          )}
+          {<Heroes listHero={filteredHeroes} />}
         </main>
       </div>
     </>

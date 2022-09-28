@@ -3,12 +3,13 @@ type HeroProps = {
   img: string;
   icon: string;
   slug: string;
+  audio: string;
   roles: string[];
   attack_type: string;
   localized_name: string;
 };
 
-type ListHero = Omit<HeroProps, 'roles'> & {
+type ListHero = Omit<HeroProps, "roles"> & {
   roles: string;
 };
 
@@ -17,18 +18,24 @@ export type ListHeroProps = {
 };
 
 export const getHeroes = async () => {
-  const res = await fetch('https://api.opendota.com/api/heroStats');
+  const res = await fetch("https://api.opendota.com/api/heroStats");
   const data: HeroProps[] = await res.json();
 
-  const formattedData = data.map((hero) => ({
-    id: hero.id,
-    img: hero.img,
-    icon: hero.icon,
-    roles: hero.roles.join(', '),
-    attack_type: hero.attack_type,
-    localized_name: hero.localized_name,
-    slug: hero.localized_name.replace(' ', '-').toLowerCase(),
-  }));
+  const formattedData = data.map((hero) => {
+    const slug = hero.localized_name.replace(" ", "-").toLowerCase();
+    const audio = `/assets/audio/${slug}/${slug}.mpeg`;
+
+    return {
+      slug,
+      audio,
+      id: hero.id,
+      img: hero.img,
+      icon: hero.icon,
+      roles: hero.roles.join(", "),
+      attack_type: hero.attack_type,
+      localized_name: hero.localized_name,
+    };
+  });
 
   return formattedData;
 };
