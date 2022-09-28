@@ -22,7 +22,10 @@ export const getHeroes = async () => {
   const data: HeroProps[] = await res.json();
 
   const formattedData = data.map((hero) => {
-    const slug = hero.localized_name.replace(" ", "-").toLowerCase();
+    const slug = hero.localized_name
+      .replaceAll(" ", "-")
+      .replace("'", "")
+      .toLowerCase();
     const audio = `/assets/audio/${slug}/${slug}.mpeg`;
 
     return {

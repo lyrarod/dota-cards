@@ -1,9 +1,9 @@
+import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./styles.module.css";
 import { getHeroBySlug, getHeroes } from "../../../services";
 import { GetStaticPaths, InferGetStaticPropsType } from "next";
-import Head from "next/head";
 
 export default function Hero({
   hero,
@@ -15,13 +15,15 @@ export default function Hero({
       </Head>
 
       <div className={styles.container}>
-        <Image
-          src={hero.img}
-          alt={hero.localized_name}
-          title={hero.localized_name}
-          width={256}
-          height={144}
-        />
+        <div className={styles.img}>
+          <Image
+            src={hero.img}
+            alt={hero.localized_name}
+            title={hero.localized_name}
+            width={256}
+            height={144}
+          />
+        </div>
 
         <div className={styles.title}>
           <h2>{hero.localized_name}</h2>
