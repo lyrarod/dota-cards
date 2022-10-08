@@ -1,6 +1,6 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -8,8 +8,8 @@
 }
 
 body {
-  color: #113;
-  background-color: #112;
+  color: #25254b;
+  background: #25254b;
 }
 
 a {
